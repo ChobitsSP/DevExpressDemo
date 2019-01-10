@@ -14,52 +14,64 @@
     <script src="//lib.baomitu.com/jquery/3.2.1/jquery.min.js"></script>
     <script src="//lib.baomitu.com/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="GridDemo1.js"></script>
-    <form id="form1" runat="server">
-        <div>
-            <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" KeyFieldName="Id">
-                <Columns>
-                    <dx:GridViewCommandColumn ShowNewButtonInHeader="true" ShowEditButton="true" ShowDeleteButton="true" VisibleIndex="0"></dx:GridViewCommandColumn>
-                    <dx:GridViewDataTextColumn FieldName="Id" ReadOnly="True" VisibleIndex="0">
-                        <EditFormSettings Visible="False"></EditFormSettings>
-                    </dx:GridViewDataTextColumn>
-                    <dx:GridViewDataTextColumn FieldName="Name" VisibleIndex="1"></dx:GridViewDataTextColumn>
-                    <dx:GridViewDataDateColumn FieldName="CreateTime" VisibleIndex="2">
-                        <EditFormSettings Visible="False"></EditFormSettings>
-                        <PropertiesDateEdit DisplayFormatString="yyyy-MM-dd HH:mm:ss"></PropertiesDateEdit>
-                    </dx:GridViewDataDateColumn>
-                    <dx:GridViewDataCheckColumn FieldName="IsDel" VisibleIndex="3">
-                    </dx:GridViewDataCheckColumn>
-                    <dx:GridViewDataTextColumn FieldName="FileUrl" VisibleIndex="4">
-                        <EditItemTemplate>
-                            <div>
-                                <div class="form-group">
-                                    <label>
-                                        Upload
-                                    </label>
-                                    <dx:ASPxUploadControl ID="ASPxUploadControl1"
-                                        FileInputCount="1"
-                                        runat="server"
-                                        UploadMode="Auto"
-                                        Width="280px"
-                                        OnFileUploadComplete="ASPxUploadControl1_FileUploadComplete"
-                                        ShowUploadButton="True"
-                                        ShowProgressPanel="True">
-                                        <ClientSideEvents FileUploadComplete="FileUploadComplete"></ClientSideEvents>
-                                    </dx:ASPxUploadControl>
-                                </div>
-                                <div class="form-group">
-                                    <label>
-                                        FileUrl
-                                    </label>
-                                    <dx:ASPxTextBox ID="ASPxTextBox1" CssClass="form-control" runat="server" ReadOnly="true" Text='<%# Eval("FileUrl") %>'></dx:ASPxTextBox>
-                                </div>
-                            </div>
-                        </EditItemTemplate>
-                    </dx:GridViewDataTextColumn>
-                </Columns>
-            </dx:ASPxGridView>
-            <asp:SqlDataSource runat="server" ID="SqlDataSource1" ConnectionString='<%$ ConnectionStrings:ConnectionString %>' SelectCommand="SELECT * FROM [Table1]"></asp:SqlDataSource>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <h3>GridDemo1</h3>
+            </div>
         </div>
-    </form>
+        <div class="row">
+            <div class="col-md-12">
+                <form id="form1" runat="server">
+                    <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" KeyFieldName="Id">
+                        <Columns>
+                            <dx:GridViewCommandColumn ShowNewButtonInHeader="true" ShowEditButton="true" ShowDeleteButton="true" VisibleIndex="0"></dx:GridViewCommandColumn>
+                            <dx:GridViewDataTextColumn FieldName="Id" ReadOnly="True" VisibleIndex="0">
+                                <EditFormSettings Visible="False"></EditFormSettings>
+                            </dx:GridViewDataTextColumn>
+                            <dx:GridViewDataTextColumn FieldName="Name" VisibleIndex="1"></dx:GridViewDataTextColumn>
+                            <dx:GridViewDataDateColumn FieldName="CreateTime" VisibleIndex="2">
+                                <EditFormSettings Visible="False"></EditFormSettings>
+                                <PropertiesDateEdit DisplayFormatString="yyyy-MM-dd HH:mm:ss"></PropertiesDateEdit>
+                            </dx:GridViewDataDateColumn>
+                            <dx:GridViewDataCheckColumn FieldName="IsDel" VisibleIndex="3">
+                            </dx:GridViewDataCheckColumn>
+                            <dx:GridViewDataTextColumn FieldName="FileUrl" VisibleIndex="4">
+                                <EditItemTemplate>
+                                    <div>
+                                        <div class="form-group">
+                                            <label>
+                                                Upload
+                                            </label>
+                                            <dx:ASPxUploadControl ID="ASPxUploadControl1"
+                                                FileInputCount="1"
+                                                runat="server"
+                                                UploadMode="Auto"
+                                                Width="280px"
+                                                OnFileUploadComplete="ASPxUploadControl1_FileUploadComplete"
+                                                ShowUploadButton="True"
+                                                ShowProgressPanel="True">
+                                                <ClientSideEvents FileUploadComplete="FileUploadComplete"></ClientSideEvents>
+                                            </dx:ASPxUploadControl>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>
+                                                FileUrl
+                                            </label>
+                                            <dx:ASPxTextBox ID="ASPxTextBox1" CssClass="form-control" runat="server" ReadOnly="true" Text='<%# Eval("FileUrl") %>'></dx:ASPxTextBox>
+                                        </div>
+                                    </div>
+                                </EditItemTemplate>
+                            </dx:GridViewDataTextColumn>
+                        </Columns>
+                    </dx:ASPxGridView>
+                    <asp:SqlDataSource runat="server"
+                        ID="SqlDataSource1"
+                        ConnectionString='<%$ ConnectionStrings:ConnectionString %>'
+                        SelectCommand="SELECT * FROM [Table1]"></asp:SqlDataSource>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

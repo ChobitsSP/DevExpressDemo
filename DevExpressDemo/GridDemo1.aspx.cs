@@ -16,6 +16,7 @@ namespace DevExpressDemo
         protected void Page_Load(object sender, EventArgs e)
         {
             ASPxGridView1.InitSettings();
+            ASPxGridView1.InitEditForm();
             ASPxGridView1.RowInserting += ASPxGridView1_RowInserting;
             ASPxGridView1.RowDeleting += ASPxGridView1_RowDeleting;
             ASPxGridView1.RowValidating += ASPxGridView1_RowValidating;

@@ -10,6 +10,7 @@ using DevExpress.Export;
 using Newtonsoft.Json;
 using DevExpress.Web.Data;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace DevExpressDemo
 {
@@ -167,6 +168,23 @@ function (s, e) {
 
                 return (value / 100).ToString();
             }
+        }
+
+        public static void InitEditForm(this ASPxGridView grid)
+        {
+            var st = grid.SettingsEditing;
+            st.Mode = GridViewEditingMode.PopupEditForm;
+            grid.SettingsPopup.EditForm.VerticalAlign = PopupVerticalAlign.WindowCenter;
+            grid.SettingsPopup.EditForm.HorizontalAlign = PopupHorizontalAlign.WindowCenter;
+            grid.SettingsPopup.EditForm.AllowResize = true;
+            grid.HtmlEditFormCreated += ASPxGridView_HtmlEditFormCreated;
+        }
+
+        private static void ASPxGridView_HtmlEditFormCreated(object sender, ASPxGridViewEditFormEventArgs e)
+        {
+            ASPxPopupControl popup = e.EditForm.NamingContainer as ASPxPopupControl;
+            popup.MaxHeight = 600;
+            popup.ScrollBars = ScrollBars.Both;
         }
     }
 }
