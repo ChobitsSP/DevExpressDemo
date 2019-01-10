@@ -28,7 +28,7 @@ namespace DevExpressDemo
             var item = e.NewValues.ToEntity<Table1>();
 
             item.CreateTime = DateTime.Now;
-            item.FileUrl = grid.GetEditText("url", "ASPxTextBox1");
+            item.FileUrl = grid.GetEditText("FileUrl", "ASPxTextBox1");
 
             using (var db = new Entities())
             {

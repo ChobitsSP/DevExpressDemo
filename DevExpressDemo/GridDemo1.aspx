@@ -23,7 +23,11 @@
         <div class="row">
             <div class="col-md-12">
                 <form id="form1" runat="server">
-                    <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1" KeyFieldName="Id">
+                    <dx:ASPxGridView ID="ASPxGridView1" runat="server" 
+                        ClientInstanceName="grid1"
+                        AutoGenerateColumns="False" 
+                        DataSourceID="SqlDataSource1" 
+                        KeyFieldName="Id">
                         <Columns>
                             <dx:GridViewCommandColumn ShowNewButtonInHeader="true" ShowEditButton="true" ShowDeleteButton="true" VisibleIndex="0"></dx:GridViewCommandColumn>
                             <dx:GridViewDataTextColumn FieldName="Id" ReadOnly="True" VisibleIndex="0">
