@@ -1,5 +1,7 @@
-﻿using DevExpress.Web;
+﻿using DevExpress.Export;
+using DevExpress.Web;
 using DevExpress.Web.Data;
+using DevExpress.XtraPrinting;
 using DevExpressDemo.DbModels;
 using System;
 using System.Collections.Generic;
@@ -113,6 +115,11 @@ namespace DevExpressDemo
                 e.RowError = "FileUrl required";
                 return;
             }
+        }
+
+        protected void Export_ServerClick(object sender, EventArgs e)
+        {
+            ASPxGridViewExporter1.WriteXlsxToResponse("table1.xlsx", new XlsxExportOptionsEx { ExportType = ExportType.WYSIWYG });
         }
     }
 }

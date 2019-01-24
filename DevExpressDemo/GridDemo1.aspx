@@ -22,11 +22,16 @@
         </div>
         <div class="row">
             <div class="col-md-12">
+                <button runat="server" onserverclick="Export_ServerClick">export xlsx</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
                 <form id="form1" runat="server">
-                    <dx:ASPxGridView ID="ASPxGridView1" runat="server" 
+                    <dx:ASPxGridView ID="ASPxGridView1" runat="server"
                         ClientInstanceName="grid1"
-                        AutoGenerateColumns="False" 
-                        DataSourceID="SqlDataSource1" 
+                        AutoGenerateColumns="False"
+                        DataSourceID="SqlDataSource1"
                         KeyFieldName="Id">
                         <Columns>
                             <dx:GridViewCommandColumn ShowNewButtonInHeader="true" ShowEditButton="true" ShowDeleteButton="true" VisibleIndex="0"></dx:GridViewCommandColumn>
@@ -73,6 +78,7 @@
                         ID="SqlDataSource1"
                         ConnectionString='<%$ ConnectionStrings:ConnectionString %>'
                         SelectCommand="SELECT * FROM [Table1]"></asp:SqlDataSource>
+                    <dx:ASPxGridViewExporter ID="ASPxGridViewExporter1" runat="server"></dx:ASPxGridViewExporter>
                 </form>
             </div>
         </div>
