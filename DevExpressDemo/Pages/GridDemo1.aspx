@@ -45,7 +45,7 @@
                             </dx:GridViewDataCheckColumn>
                             <dx:GridViewDataTextColumn FieldName="FileUrl" VisibleIndex="4">
                                 <EditItemTemplate>
-                                    <dx:ASPxTextBox ID="ASPxTextBox1" runat="server" Text='<%# Eval("FileUrl") %>'>
+                                    <dx:ASPxTextBox ID="ASPxTextBox1" CssClass="hidden" runat="server" Text='<%# Eval("FileUrl") %>'>
                                         <ClientSideEvents Init="InitFileUrl" />
                                     </dx:ASPxTextBox>
                                 </EditItemTemplate>
