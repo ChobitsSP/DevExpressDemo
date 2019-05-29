@@ -3,7 +3,7 @@
 function GetDom(input) {
   const div = document.createElement("div");
   const inputDom = document.getElementById(input.name);
-  inputDom.style.display = "none";
+  // inputDom.style.display = "none";
   inputDom.parentElement.appendChild(div);
   return div;
 }
