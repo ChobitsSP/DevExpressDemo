@@ -53,6 +53,13 @@
                                     <img width="50" height="50" src="<%# Eval("FileUrl") %>" />
                                 </DataItemTemplate>
                             </dx:GridViewDataTextColumn>
+                            <dx:GridViewDataComboBoxColumn FieldName="Cid" VisibleIndex="5">
+                                <PropertiesComboBox DataSourceID="SqlDataSource2" TextField="Name" ValueField="Id">
+                                    <ValidationSettings>
+                                        <RequiredField IsRequired="true" />
+                                    </ValidationSettings>
+                                </PropertiesComboBox>
+                            </dx:GridViewDataComboBoxColumn>
                         </Columns>
                     </dx:ASPxGridView>
                     <asp:SqlDataSource runat="server"
@@ -60,6 +67,11 @@
                         ConnectionString='<%$ ConnectionStrings:ConnectionString %>'
                         SelectCommand="SELECT * FROM [Table1]"></asp:SqlDataSource>
                     <dx:ASPxGridViewExporter ID="ASPxGridViewExporter1" runat="server"></dx:ASPxGridViewExporter>
+                    <asp:SqlDataSource runat="server"
+                        ID="SqlDataSource2"
+                        ConnectionString='<%$ ConnectionStrings:ConnectionString %>'
+                        SelectCommand="SELECT * FROM [Table2]"></asp:SqlDataSource>
+                    <dx:ASPxGridViewExporter ID="ASPxGridViewExporter2" runat="server"></dx:ASPxGridViewExporter>
                 </div>
             </div>
         </div>
