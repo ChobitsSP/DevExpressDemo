@@ -1,13 +1,15 @@
-﻿'use strict';
+'use strict';
+
+function GetDom(input) {
+  const div = document.createElement("div");
+  const inputDom = document.getElementById(input.name);
+  // inputDom.style.display = "none";
+  inputDom.parentElement.appendChild(div);
+  return div;
+}
 
 function InitFileUrl(input) {
-  const div = document.createElement('div');
-
-  const inputDom = document.getElementById(input.name);
-  inputDom.style = 'display: none;';
-  inputDom.parentElement.appendChild(div);
-
-  const app = new Vue({
+  new Vue({
     template: `
 <el-upload
   class="upload-demo"
@@ -43,9 +45,7 @@ function InitFileUrl(input) {
         input.SetValue(response);
       }
     }
-  });
-
-  app.$mount(div);
+  }).$mount(GetDom(input));
 }
 
 function InitFilter() {
