@@ -1,0 +1,9 @@
+/.vs
+/packages
+/DevExpressDemo/upload
+/DevExpressDemo/bin
+/DevExpressDemo/obj
+/DevExpressDemo/*.user
+/DevExpressDemo/App_Data/*.ldf
+*.licx
+/DevExpressDemo/temp_files
