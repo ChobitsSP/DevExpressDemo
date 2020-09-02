@@ -19,5 +19,6 @@ namespace DevExpressDemo.DbModels
         public System.DateTime CreateTime { get; set; }
         public short IsDel { get; set; }
         public string FileUrl { get; set; }
+        public Nullable<int> Cid { get; set; }
     }
 }
