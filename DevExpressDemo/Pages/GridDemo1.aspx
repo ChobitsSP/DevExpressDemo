@@ -7,6 +7,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <script src="GridDemo1.js"></script>
     <form runat="server">
+        <asp:HiddenField ID="HiddenField1" ClientIDMode="Static" runat="server" />
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
@@ -15,6 +16,8 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
+                    <div id="TableFilter"></div>
+                    <button runat="server" class="btn btn-success" onserverclick="Query">query</button>
                     <button runat="server" class="btn btn-success" onserverclick="Export_ServerClick">export xlsx</button>
                 </div>
             </div>
@@ -70,7 +73,11 @@
                     <asp:SqlDataSource runat="server"
                         ID="SqlDataSource2"
                         ConnectionString='<%$ ConnectionStrings:ConnectionString %>'
-                        SelectCommand="SELECT * FROM [Table2]"></asp:SqlDataSource>
+                        SelectCommand="SELECT * FROM [Table2]">
+                        <%--<SelectParameters>
+                            <asp:DynamicQueryStringParameter Name="id" DbType="Int32" />
+                        </SelectParameters>--%>
+                    </asp:SqlDataSource>
                     <dx:ASPxGridViewExporter ID="ASPxGridViewExporter2" runat="server"></dx:ASPxGridViewExporter>
                 </div>
             </div>

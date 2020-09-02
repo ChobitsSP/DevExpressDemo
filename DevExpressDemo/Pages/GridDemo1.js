@@ -47,3 +47,46 @@ function InitFileUrl(input) {
 
   app.$mount(div);
 }
+
+function InitFilter() {
+  /** @type{HTMLInputElement} */
+  const input = document.getElementById("HiddenField1");
+
+  const template = /* html */ `
+<div>
+<el-form :inline="true" size="small">
+  <el-form-item label="multi select">
+    <el-select v-model="filter.list1" multiple collapse-tags clearable>
+      <el-option label="value1" :value="1" />
+      <el-option label="value2" :value="2" />
+      <el-option label="value3" :value="3" />
+      <el-option label="value4" :value="4" />
+    </el-select>
+  </el-form-item>
+</el-form>
+</div>
+`;
+
+  new Vue({
+    el: "#TableFilter",
+    template: template,
+    data: function () {
+      return {
+        filter: JSON.parse(input.value)
+      };
+    },
+    watch: {
+      filter: {
+        handler: function (val, oldVal) {
+          input.value = JSON.stringify(val);
+        },
+        deep: true
+      }
+    }
+  });
+}
+
+
+window.onload = function () {
+  InitFilter();
+}
